@@ -1,0 +1,52 @@
+import java.awt.Color;
+import java.awt.Font;
+
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.border.Border;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//JLabel = a GUI display area for a string of text, an image, or both
+		
+		ImageIcon image = new ImageIcon("image.png");
+		Border border = BorderFactory.createLineBorder(Color.orange,3);
+		
+		JLabel label = new JLabel(); //create a label
+		label.setText("Good morning ladies and gentlemen of the jury"); //set text of label
+		label.setIcon(image);
+		//label.setHorizontalAlignment(JLabel.CENTER);
+		label.setHorizontalTextPosition(JLabel.CENTER); //set text LEFT,CENTER, or RIGHT of image
+		label.setVerticalTextPosition(JLabel.TOP); //set text TOP,CENTER, or BOTTOM of image
+		
+		//label.setForeground(Color.orange); //changing text color to default colors
+		//label.setForeground(new Color(150,150,150)); //changing text color to customized color using RGB values
+		label.setForeground(new Color(0xFF0000)); //changing text color to customized color using hexadecimal values for color
+		
+		label.setFont(new Font("MV Boli",Font.PLAIN,50));// set font of text
+		label.setIconTextGap(50); //set gap of text to image
+		
+		label.setBackground(Color.cyan); //set background color
+		label.setOpaque(true); //display background color, setOpaque must set to true to see change in background color
+		
+		label.setBorder(border); //create border to label
+		
+		label.setVerticalAlignment(JLabel.CENTER);
+		label.setHorizontalAlignment(JLabel.CENTER);
+		
+		//label.setBounds(50,50,250,300); //set x,y position within frame as well as dimensions
+		
+		JFrame frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//frame.setSize(500, 500);
+		//frame.setLayout(null); //to limit size of label frame; to use setLayout() we also need to use setBounds() in combination
+		frame.setVisible(true);
+		frame.add(label);
+		frame.pack();//when we use pack() we don't need setSize(), setLayout(), and setBounds(); add all components before using pack else components mentioned after pack will not be visible
+	}
+
+}
